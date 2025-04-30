@@ -12,7 +12,7 @@ button.addEventListener('click', () => {
         alert("Task is Invalid");
         return;
     }
-
+    // it wont work if you dont write anything
     const newTask = {
         id: taskId++,
         name: input1.value,
@@ -22,13 +22,16 @@ button.addEventListener('click', () => {
         date: new Date().toLocaleDateString()
     };
 
+    // the object 
+
     tasks.push(newTask);
     console.log(JSON.stringify(tasks));
     displayTasks();
-
+    // push
     input1.value = "";
     input2.value = "Low";
     input3.checked = false;
+    // clearing eveything
 });
 
 function displayTasks() {
@@ -39,15 +42,17 @@ function displayTasks() {
 
         const taskInfo = document.createElement("div");
         taskInfo.innerHTML = `
-            <strong>${task.name}</strong> <br>
-            Priority: ${task.priority} <br>
-            Added: ${task.date}
-        `;
+        <strong>${task.name}</strong> <br>
+        Priority: ${task.priority}  <br>
+        Added: ${task.date}
+        `
+//printing it out
         if (task.isCompleted) {
             taskInfo.style.textDecoration = "line-through";
         }
 
         const buttonsDiv = document.createElement("div");
+        taskDiv.style.backgroundColor = task.isImportant ? "rgba(241, 41, 41, 0.616)" : "white";
 
         const completeButton = document.createElement("button");
         completeButton.textContent = task.isCompleted ? "Undo" : "Complete";
@@ -56,7 +61,7 @@ function displayTasks() {
             console.log(JSON.stringify(tasks));
             displayTasks();
         });
-
+//complete button
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.style.marginLeft = "5px";
@@ -65,13 +70,14 @@ function displayTasks() {
             console.log(JSON.stringify(tasks));
             displayTasks();
         });
-
+//delete button
         buttonsDiv.appendChild(completeButton);
         buttonsDiv.appendChild(deleteButton);
 
         taskDiv.appendChild(taskInfo);
         taskDiv.appendChild(buttonsDiv);
         taskManager.appendChild(taskDiv);
+//appending everything
         
     });
 }
