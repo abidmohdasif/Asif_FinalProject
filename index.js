@@ -9,7 +9,7 @@ let taskId = 1;
 
 button.addEventListener('click', () => {
     if (input1.value.trim() === "") {
-        alert("Task name cannot be empty!");
+        alert("Task is Invalid");
         return;
     }
 
