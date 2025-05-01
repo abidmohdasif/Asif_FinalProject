@@ -27,7 +27,7 @@ button.addEventListener('click', () => {
     tasks.push(newTask);
     console.log(JSON.stringify(tasks));
     displayTasks();
-    // push
+    // pushing everything
     input1.value = "";
     input2.value = "Low";
     input3.checked = false;
@@ -42,15 +42,15 @@ function displayTasks() {
 
         const taskInfo = document.createElement("div");
         taskInfo.innerHTML = `
-        <strong>${task.name}</strong> <br>
-        Priority: ${task.priority}  <br>
+        <strong>${task.name}</strong>
+        Priority: ${task.priority} 
         Added: ${task.date}
         `
 //printing it out
         if (task.isCompleted) {
             taskInfo.style.textDecoration = "line-through";
         }
-
+// getting the strike through to work
         const buttonsDiv = document.createElement("div");
         taskDiv.style.backgroundColor = task.isImportant ? "rgba(241, 41, 41, 0.616)" : "white";
 
